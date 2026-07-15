@@ -1,0 +1,202 @@
+.container-landing {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #071A68;
+    position: relative;
+    overflow: hidden;
+
+
+}
+
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+.judul {
+    color: #071A68;
+    font-weight: bold;
+    z-index: 1;
+    margin-top: 140px;
+    font-size: 40px;
+    text-align: center;
+}
+
+.subjudul {
+    color: #071A68;
+    font-weight: normal;
+    z-index: 1;
+    top: 500px;
+    font-size: 22px;
+    position: absolute;
+    text-align: center;
+}
+
+.circle {
+    width: 140%;
+    height: 80%;
+    top: 390px;
+    border-radius: 50%;
+    background: #ffffff;
+    color: white;
+    position: absolute;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+}
+
+.dekripsi {
+    color: #000000;
+    font-weight: normal;
+    z-index: 100;
+    top: 540px;
+    width: 50%;
+    font-size: 20px;
+    position: absolute;
+    text-align: center;
+}
+
+.btn-landing {
+    position: absolute;
+    margin-top: 530px;
+    z-index: 100;
+    background-color: #071A68;
+    color: white;
+    padding: 10px 20px;
+    width: 200px;
+    border-radius: 100px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+    font-weight: 100;
+}
+
+.img-landing {
+    position: absolute;
+    z-index: 0;
+    top: -150px;
+    width: 30%;
+}
+
+.intro-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100vh;
+
+    background: #071A68;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    z-index: 9999;
+
+    animation: fadeOutIntro 1s ease forwards;
+    animation-delay: 2.5s;
+    /* lama intro */
+}
+
+.intro-logo {
+    width: 120px;
+    height: auto;
+
+    animation: logoPopUp 1.2s ease-out;
+}
+
+/* Bagian Mobile*/
+@media (max-width: 1024px) {
+
+    .judul {
+        font-size: 30px;
+        margin-top: 90px;
+        top: 50px;
+        top: 40px;
+    }
+
+    .subjudul {
+        top: 410px;
+        font-size: 16px;
+        font-weight: bolder;
+    }
+
+    .circle {
+        width: 130%;
+        height: 65%;
+        top: 320px;
+        z-index: 1;
+    }
+
+    .dekripsi {
+        top: 450px;
+        width: 90%;
+        font-weight: 200;
+        color: #000000;
+        font-size: 15px;
+    }
+
+    .btn-landing {
+        margin-top: 450px;
+        border-radius: 100px;
+        width: 150px;
+        font-size: 14px;
+    }
+
+    a {
+        text-decoration: none;
+        color: white;
+        font-weight: 100;
+    }
+
+    .img-landing {
+        position: absolute;
+        z-index: 0;
+        top: -100px;
+
+        width: 80%;
+    }
+}
+
+@keyframes logoPopUp {
+    0% {
+        opacity: 0;
+        transform: translateY(80px) scale(0.7);
+    }
+
+    60% {
+        opacity: 1;
+        transform: translateY(-10px) scale(1.05);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes fadeOutIntro {
+    0% {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    100% {
+        opacity: 0;
+        visibility: hidden;
+    }
+}

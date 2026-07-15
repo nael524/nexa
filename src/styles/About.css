@@ -1,0 +1,306 @@
+/* ==========================================================================
+   1. GLOBAL SYSTEM LOCK & RESET
+   ========================================================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Base style untuk section About */
+.about {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #f8fafc;
+  /* Latar belakang abu premium super bersih */
+  padding: 120px 24px 80px 24px;
+  /* Padding atas longgar agar tidak tertabrak fixed navbar */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 60px;
+  /* Jarak antar section utama yang konsisten */
+}
+
+/* ==========================================================================
+   2. MAIN TITLE STYLING
+   ========================================================================== */
+.about-title {
+  font-size: 38px;
+  font-weight: 800;
+  color: #071A68;
+  /* Biru Utama NexaWeb */
+  position: relative;
+  padding-bottom: 12px;
+  letter-spacing: -0.5px;
+  text-align: center;
+}
+
+/* Garis dekoratif hijau di bawah judul utama */
+.about-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 4px;
+  background-color: #13c343;
+  /* Hijau Aksen */
+  border-radius: 2px;
+}
+
+/* ==========================================================================
+   3. PROFILE SECTION (Siapa NexaWeb?)
+   ========================================================================== */
+.about-card {
+  width: 100%;
+  max-width: 900px;
+  background: #ffffff;
+  padding: 40px;
+  border-radius: 20px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 10px 30px rgba(7, 26, 104, 0.04);
+  text-align: center;
+}
+
+.about-card h3 {
+  font-size: 24px;
+  color: #071A68;
+  margin-bottom: 16px;
+  font-weight: 700;
+}
+
+.about-card p {
+  font-size: 16px;
+  color: #475569;
+  line-height: 1.8;
+}
+
+/* ==========================================================================
+   4. VISION & MISSION SECTION (Layout Berdampingan)
+   ========================================================================== */
+.visiMisi {
+  width: 100%;
+  max-width: 1100px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.visiMisi>h3 {
+  font-size: 26px;
+  color: #071A68;
+  text-align: center;
+  font-weight: 700;
+}
+
+/* Kontainer pembagi Visi dan Misi */
+.visiMisi-content {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  /* Terbagi 2 sama rata di desktop */
+  gap: 32px;
+  width: 100%;
+}
+
+.visi,
+.misi {
+  background: #ffffff;
+  padding: 40px;
+  border-radius: 20px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 10px 30px rgba(7, 26, 104, 0.04);
+  transition: transform 0.3s ease;
+}
+
+.visi:hover,
+.misi:hover {
+  transform: translateY(-4px);
+}
+
+.visi h4,
+.misi h4 {
+  font-size: 20px;
+  color: #13c343;
+  /* Hijau untuk sub-judul internal */
+  margin-bottom: 16px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.visi p {
+  font-size: 15.5px;
+  color: #475569;
+  line-height: 1.7;
+}
+
+/* Styling Khusus List Misi */
+.misi ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.misi ul li {
+  font-size: 15.5px;
+  color: #475569;
+  line-height: 1.6;
+  position: relative;
+  padding-left: 24px;
+}
+
+/* Custom Bullet Point Keren Warna Hijau */
+.misi ul li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: #13c343;
+  font-weight: bold;
+}
+
+/* ==========================================================================
+   5. DEVELOPER TEAM SECTION (Premium Cards Layout)
+   ========================================================================== */
+.developer {
+  width: 100%;
+  max-width: 1100px;
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+}
+
+.developer>h3 {
+  font-size: 26px;
+  color: #071A68;
+  text-align: center;
+  font-weight: 700;
+}
+
+/* Grid layout untuk menampung para team developer */
+.developer-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  /* Tiga kolom horizontal pada Desktop */
+  gap: 32px;
+  width: 100%;
+}
+
+.developer-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 20px;
+  padding: 32px 24px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(7, 26, 104, 0.03);
+  transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.developer-card:hover {
+  transform: translateY(-6px);
+  border-color: #071A68;
+  box-shadow: 0 20px 40px rgba(7, 26, 104, 0.08);
+}
+
+/* Foto Profil Developer */
+.developer-card img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  /* Membuat foto melingkar sempurna */
+  object-fit: cover;
+  margin-bottom: 20px;
+  border: 4px solid #f1f5f9;
+  transition: transform 0.4s ease, border-color 0.4s ease;
+}
+
+.developer-card:hover img {
+  transform: scale(1.05);
+  border-color: #13c343;
+  /* Berubah hijau saat card di-hover */
+}
+
+.developer-card h4 {
+  font-size: 18px;
+  color: #071A68;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.developer-card span {
+  font-size: 13.5px;
+  color: #64748b;
+  font-weight: 500;
+  background-color: #f1f5f9;
+  padding: 4px 14px;
+  border-radius: 30px;
+  letter-spacing: 0.3px;
+}
+
+/* ==========================================================================
+   6. SOLID MOBILE RESPONSIVE ENGINE (Tablet & HP Screen Breakpoints)
+   ========================================================================== */
+
+/* Mode Tablet & Smartphone Menengah */
+@media screen and (max-width: 900px) {
+  .about {
+    padding: 100px 20px 60px 20px;
+    gap: 48px;
+  }
+
+  .about-title {
+    font-size: 32px;
+  }
+
+  /* Visi Misi berubah menjadi satu kolom vertikal */
+  .visiMisi-content {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  /* Developer list menyusut menjadi 2 kolom atau menyesuaikan */
+  .developer-list {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+}
+
+/* Mode HP Layar Kecil (Ramping & Anti-Bocor) */
+@media screen and (max-width: 600px) {
+  .about-title {
+    font-size: 28px;
+  }
+
+  .about-card {
+    padding: 28px 20px;
+  }
+
+  .about-card h3,
+  .visiMisi>h3,
+  .developer>h3 {
+    font-size: 22px;
+  }
+
+  .visi,
+  .misi {
+    padding: 28px 20px;
+  }
+
+  /* Tim Developer menjadi susunan satu per satu ke bawah (1 Kolom Rapi) */
+  .developer-list {
+    grid-template-columns: 1fr;
+    max-width: 320px;
+    margin: 0 auto;
+    /* Menjaga agar card berdiri tepat di tengah layar HP */
+  }
+
+  .developer-card {
+    padding: 28px 20px;
+  }
+}

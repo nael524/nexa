@@ -1,0 +1,253 @@
+/* ==========================================================================
+   1. GLOBAL & CONTAINER RESET
+   ========================================================================== */
+.pricing-section {
+    padding: 100px 24px 60px 24px;
+    /* Padding atas longgar agar tidak tertutup Fixed Navbar */
+    background-color: #f8fafc;
+    /* Latar belakang abu-abu premium ultra-light */
+    min-height: 100vh;
+    font-family: 'Segoe UI', Roboto, -apple-system, sans-serif;
+    box-sizing: border-box;
+}
+
+.pricing-container {
+    max-width: 1200px;
+
+    margin-top: -50px;
+    width: 100%;
+}
+
+/* ==========================================================================
+   2. HEADER TITLE (Text Styling)
+   ========================================================================== */
+.pricing-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.pricing-main-title {
+    color: #13c343;
+    /* Hijau cerah identitas NexaWeb */
+    font-size: 36px;
+    font-weight: 600;
+    margin-bottom: 14px;
+    letter-spacing: -0.5px;
+}
+
+.pricing-subtitle {
+    color: #64748b;
+    font-size: 16px;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+/* ==========================================================================
+   3. MOBILE LAYOUT (Default: 1 Kolom Rapat & Rigid)
+   ========================================================================== */
+.pricing-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    /* Jarak antar card di HP */
+    width: 100%;
+}
+
+.pricing-card {
+    display: flex;
+    position: relative;
+    background: #ffffff;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 10px 25px rgba(7, 26, 104, 0.04);
+    /* Bayangan biru tipis */
+    transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1),
+        box-shadow 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.pricing-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 35px rgba(7, 26, 104, 0.08);
+}
+
+/* Varian Card Rekomendasi / Terpopuler */
+.pricing-card.popular {
+    border: 2px solid #071A68;
+}
+
+.popular-ribbon {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    background-color: #071A68;
+    color: #ffffff;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 5px 12px;
+    border-radius: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* ==========================================================================
+   4. BADGE VERTIKAL (Rotated Text)
+   ========================================================================== */
+.card-badge {
+    background-color: #13c343;
+    width: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.card-badge span {
+    color: #ffffff;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    white-space: nowrap;
+    transform: rotate(-90deg);
+    display: block;
+}
+
+/* ==========================================================================
+   5. INNER CARD CONTENT
+   ========================================================================== */
+.card-content {
+    padding: 28px 24px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.card-header-info {
+    margin-bottom: 16px;
+    padding-right: 80px;
+    /* Memberi ruang agar teks tidak tabrakan dengan ribbon terpopuler */
+}
+
+.delivery-time {
+    font-size: 11px;
+    color: #13c343;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.card-title {
+    color: #071A68;
+    /* Biru Utama */
+    font-size: 20px;
+    font-weight: 700;
+    margin-top: 4px;
+    line-height: 1.3;
+}
+
+/* Section Harga */
+.price-section {
+    background-color: #f1f5f9;
+    padding: 12px 16px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.price-period {
+    font-size: 11px;
+    color: #64748b;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.price-amount {
+    font-size: 22px;
+    font-weight: 800;
+    color: #071A68;
+}
+
+/* Fitur List */
+.card-features {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 28px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.card-features li {
+    font-size: 13.5px;
+    color: #334155;
+    line-height: 1.4;
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+}
+
+.check-icon {
+    color: #13c343;
+    font-weight: bold;
+    flex-shrink: 0;
+}
+
+/* Button Call To Action (CTA) */
+.btn-order {
+    background-color: #071A68;
+    color: #ffffff;
+    border: none;
+    padding: 14px 20px;
+    border-radius: 10px;
+    font-size: 14.5px;
+    font-weight: 700;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+    text-align: center;
+    margin-top: auto;
+    /* Memaksa posisi tombol selalu mengunci di paling bawah card */
+}
+
+.btn-order:hover {
+    background-color: #13c343;
+}
+
+.btn-order:active {
+    transform: scale(0.98);
+}
+
+/* Custom warna tombol untuk card terpopuler */
+.pricing-card.popular .btn-order {
+    background-color: #13c343;
+}
+
+.pricing-card.popular .btn-order:hover {
+    background-color: #071A68;
+}
+
+/* ==========================================================================
+   6. ADVANCED RESPONSIVE GRID (DESKTOP VERSION)
+   ========================================================================== */
+/* Untuk Tablet ke atas, layout membelah menjadi 2 kolom grid */
+@media screen and (min-width: 768px) {
+    .pricing-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 28px;
+    }
+
+    .pricing-main-title {
+        font-size: 42px;
+    }
+}
+
+/* Untuk Laptop/PC monitor lebar, otomatis membelah menjadi 3 kolom grid sejajar */
+@media screen and (min-width: 1024px) {
+    .pricing-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
