@@ -1,253 +1,374 @@
 /* ==========================================================================
-   1. GLOBAL & CONTAINER RESET
+   IMPORT FONTS & GLOBAL RESET
    ========================================================================== */
-.pricing-section {
-    padding: 100px 24px 60px 24px;
-    /* Padding atas longgar agar tidak tertutup Fixed Navbar */
-    background-color: #f8fafc;
-    /* Latar belakang abu-abu premium ultra-light */
-    min-height: 100vh;
-    font-family: 'Segoe UI', Roboto, -apple-system, sans-serif;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
-}
-
-.pricing-container {
-    max-width: 1200px;
-
-    margin-top: -50px;
-    width: 100%;
+    font-family: 'Poppins', sans-serif;
 }
 
 /* ==========================================================================
-   2. HEADER TITLE (Text Styling)
+   PRICING SECTION - PURE WHITE CONCEPT
    ========================================================================== */
-.pricing-header {
+.pricing-section-white {
+    width: 100%;
+    min-height: 100vh;
+    background: #ffffff;
+    /* Background Putih Bersih */
+    position: relative;
+    padding: 100px 4% 100px 4%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pricing-container-white {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* Header Teks */
+.pricing-header-white {
     text-align: center;
-    margin-bottom: 50px;
+    margin-bottom: 70px;
 }
 
-.pricing-main-title {
-    color: #13c343;
-    /* Hijau cerah identitas NexaWeb */
-    font-size: 36px;
-    font-weight: 600;
-    margin-bottom: 14px;
+.pricing-top-tag-white {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: #071A68;
+    /* Identitas Brand Biru Gelap Anda */
+    display: inline-block;
+    margin-bottom: 12px;
+}
+
+.pricing-main-title-white {
+    font-size: 42px;
+    font-weight: 800;
     letter-spacing: -0.5px;
+    color: #111111;
+    line-height: 1.2;
 }
 
-.pricing-subtitle {
-    color: #64748b;
-    font-size: 16px;
-    max-width: 600px;
+.pricing-title-line-white {
+    width: 70px;
+    height: 4px;
+    background: #071A68;
+    margin: 18px auto 22px auto;
+    border-radius: 10px;
+}
+
+.pricing-subtitle-white {
+    font-size: 17px;
+    color: #666666;
+    max-width: 720px;
     margin: 0 auto;
     line-height: 1.6;
+    font-weight: 400;
 }
 
 /* ==========================================================================
-   3. MOBILE LAYOUT (Default: 1 Kolom Rapat & Rigid)
+   GRID LAYOUT & CARDS (RESPONSIVE & INNER SCROLLBAR PREPARATION)
    ========================================================================== */
-.pricing-grid {
+.pricing-grid-white {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+    gap: 35px;
+    width: 100%;
+    padding: 15px 5px;
+    /* Aktifkan scroll di screen desktop tertentu agar presisi */
+    max-height: 85vh;
+    overflow-y: auto;
+    scroll-behavior: smooth;
+    padding-right: 10px;
+}
+
+/* Desain Kustom Scrollbar Indah & Minimalis */
+.pricing-grid-white::-webkit-scrollbar {
+    width: 6px;
+}
+
+.pricing-grid-white::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+.pricing-grid-white::-webkit-scrollbar-thumb {
+    background: #cccccc;
+    border-radius: 10px;
+}
+
+.pricing-grid-white::-webkit-scrollbar-thumb:hover {
+    background: #071A68;
+}
+
+/* Desain Premium Card (Putih Abu-Abu Tipis dengan Efek Bayangan Lembut) */
+.pricing-card-white {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 24px;
+    position: relative;
+    overflow: hidden;
     display: flex;
     flex-direction: column;
-    gap: 24px;
-    /* Jarak antar card di HP */
-    width: 100%;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
 }
 
-.pricing-card {
-    display: flex;
-    position: relative;
-    background: #ffffff;
-    border-radius: 16px;
-    overflow: hidden;
-    border: 1px solid #e2e8f0;
-    box-shadow: 0 10px 25px rgba(7, 26, 104, 0.04);
-    /* Bayangan biru tipis */
-    transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1),
-        box-shadow 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+.pricing-card-white:hover {
+    transform: translateY(-8px);
+    border-color: #071A68;
+    box-shadow: 0 20px 40px rgba(7, 26, 104, 0.08);
 }
 
-.pricing-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 20px 35px rgba(7, 26, 104, 0.08);
+/* Card Spesial Rekomendasi/Terpopuler (Tema Biru Kontras Standout) */
+.pricing-card-white.popular {
+    background: #071A68;
+    border-color: #071A68;
+    box-shadow: 0 15px 35px rgba(7, 26, 104, 0.2);
 }
 
-/* Varian Card Rekomendasi / Terpopuler */
-.pricing-card.popular {
-    border: 2px solid #071A68;
+.pricing-card-white.popular:hover {
+    box-shadow: 0 25px 50px rgba(7, 26, 104, 0.35);
 }
 
-.popular-ribbon {
+/* Ribbon Terpopuler */
+.popular-ribbon-white {
     position: absolute;
-    top: 14px;
-    right: 14px;
-    background-color: #071A68;
+    top: 20px;
+    right: 20px;
+    background: #ff3366;
     color: #ffffff;
-    font-size: 10px;
+    font-size: 11px;
     font-weight: 700;
-    padding: 5px 12px;
-    border-radius: 20px;
+    padding: 5px 14px;
+    border-radius: 50px;
     text-transform: uppercase;
     letter-spacing: 0.5px;
-}
-
-/* ==========================================================================
-   4. BADGE VERTIKAL (Rotated Text)
-   ========================================================================== */
-.card-badge {
-    background-color: #13c343;
-    width: 48px;
+    box-shadow: 0 4px 10px rgba(255, 51, 102, 0.2);
     display: flex;
     align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
+    gap: 4px;
 }
 
-.card-badge span {
+/* Badge Kategori */
+.card-badge-top-white {
+    padding: 30px 30px 0 30px;
+}
+
+.card-badge-top-white span {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: #071A68;
+    text-transform: uppercase;
+    background: rgba(7, 26, 104, 0.06);
+    padding: 5px 12px;
+    border-radius: 6px;
+}
+
+/* Warna badge jika di dalam card populer */
+.pricing-card-white.popular .card-badge-top-white span {
     color: #ffffff;
-    font-size: 10px;
-    font-weight: 800;
-    letter-spacing: 1.5px;
-    white-space: nowrap;
-    transform: rotate(-90deg);
-    display: block;
+    background: rgba(255, 255, 255, 0.15);
 }
 
-/* ==========================================================================
-   5. INNER CARD CONTENT
-   ========================================================================== */
-.card-content {
-    padding: 28px 24px;
+/* Body / Konten Utama Card */
+.card-body-white {
+    padding: 25px 30px 35px 30px;
     display: flex;
     flex-direction: column;
     flex-grow: 1;
 }
 
-.card-header-info {
-    margin-bottom: 16px;
-    padding-right: 80px;
-    /* Memberi ruang agar teks tidak tabrakan dengan ribbon terpopuler */
+.card-header-info-white {
+    margin-bottom: 25px;
 }
 
-.delivery-time {
-    font-size: 11px;
-    color: #13c343;
+.card-title-white {
+    font-size: 23px;
     font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-}
-
-.card-title {
-    color: #071A68;
-    /* Biru Utama */
-    font-size: 20px;
-    font-weight: 700;
-    margin-top: 4px;
+    color: #111111;
+    margin-bottom: 8px;
     line-height: 1.3;
 }
 
-/* Section Harga */
-.price-section {
-    background-color: #f1f5f9;
-    padding: 12px 16px;
-    border-radius: 10px;
-    margin-bottom: 20px;
+.pricing-card-white.popular .card-title-white {
+    color: #ffffff;
+}
+
+.delivery-box-white {
     display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13.5px;
+    color: #666666;
+    font-weight: 500;
+}
+
+.pricing-card-white.popular .delivery-box-white {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* Section Harga */
+.price-section-white {
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.pricing-card-white.popular .price-section-white {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.price-period-white {
+    font-size: 13px;
+    color: #888888;
+    display: block;
+    margin-bottom: 4px;
+    font-weight: 500;
+}
+
+.pricing-card-white.popular .price-period-white {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.price-box-white {
+    display: flex;
+    align-items: baseline;
+}
+
+.price-amount-white {
+    font-size: 32px;
+    font-weight: 800;
+    color: #071A68;
+    letter-spacing: -0.5px;
+}
+
+.pricing-card-white.popular .price-amount-white {
+    color: #ffffff;
+}
+
+/* List Fitur */
+.card-features-white {
+    list-style: none;
+    margin-bottom: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    flex-grow: 1;
+}
+
+.feature-item-white {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.check-icon-white {
+    color: #071A68;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.pricing-card-white.popular .check-icon-white {
+    color: #00ffcc;
+    /* Aksen hijau cerah di dalam box gelap */
+}
+
+.feature-text-white {
+    font-size: 14.5px;
+    color: #444444;
+    line-height: 1.5;
+    font-weight: 400;
+}
+
+.pricing-card-white.popular .feature-text-white {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+/* Tombol Konsultasi */
+.btn-order-white {
+    width: 100%;
+    padding: 15px;
+    border-radius: 14px;
+    border: 2px solid #071A68;
+    background: transparent;
+    color: #071A68;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    justify-content: center;
     align-items: center;
     gap: 8px;
 }
 
-.price-period {
-    font-size: 11px;
-    color: #64748b;
-    font-weight: 600;
-    text-transform: uppercase;
-}
-
-.price-amount {
-    font-size: 22px;
-    font-weight: 800;
-    color: #071A68;
-}
-
-/* Fitur List */
-.card-features {
-    list-style: none;
-    padding: 0;
-    margin: 0 0 28px 0;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-}
-
-.card-features li {
-    font-size: 13.5px;
-    color: #334155;
-    line-height: 1.4;
-    display: flex;
-    align-items: flex-start;
-    gap: 8px;
-}
-
-.check-icon {
-    color: #13c343;
-    font-weight: bold;
-    flex-shrink: 0;
-}
-
-/* Button Call To Action (CTA) */
-.btn-order {
-    background-color: #071A68;
+.btn-order-white:hover {
+    background: #071A68;
     color: #ffffff;
-    border: none;
-    padding: 14px 20px;
-    border-radius: 10px;
-    font-size: 14.5px;
-    font-weight: 700;
-    cursor: pointer;
-    width: 100%;
-    transition: background-color 0.2s ease, transform 0.1s ease;
-    text-align: center;
-    margin-top: auto;
-    /* Memaksa posisi tombol selalu mengunci di paling bawah card */
+    box-shadow: 0 8px 20px rgba(7, 26, 104, 0.15);
 }
 
-.btn-order:hover {
-    background-color: #13c343;
+/* Tombol di Card Populer */
+.pricing-card-white.popular .btn-order-white {
+    background: #ffffff;
+    color: #071A68;
+    border: 2px solid #ffffff;
 }
 
-.btn-order:active {
-    transform: scale(0.98);
-}
-
-/* Custom warna tombol untuk card terpopuler */
-.pricing-card.popular .btn-order {
-    background-color: #13c343;
-}
-
-.pricing-card.popular .btn-order:hover {
-    background-color: #071A68;
+.pricing-card-white.popular .btn-order-white:hover {
+    background: #f4f6fb;
+    color: #05134d;
+    box-shadow: 0 8px 25px rgba(255, 255, 255, 0.2);
 }
 
 /* ==========================================================================
-   6. ADVANCED RESPONSIVE GRID (DESKTOP VERSION)
+   MEDIA QUERIES (FULL RESPONSIVE SYSTEM)
    ========================================================================== */
-/* Untuk Tablet ke atas, layout membelah menjadi 2 kolom grid */
-@media screen and (min-width: 768px) {
-    .pricing-grid {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 28px;
+@media (max-width: 1024px) {
+    .pricing-main-title-white {
+        font-size: 34px;
     }
 
-    .pricing-main-title {
-        font-size: 42px;
+    .pricing-grid-white {
+        max-height: none;
+        /* Scrollbar dimatikan di mobile agar mengalir ke bawah alami */
+        overflow-y: visible;
+        grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+        gap: 25px;
+        padding-right: 0;
     }
 }
 
-/* Untuk Laptop/PC monitor lebar, otomatis membelah menjadi 3 kolom grid sejajar */
-@media screen and (min-width: 1024px) {
-    .pricing-grid {
-        grid-template-columns: repeat(3, 1fr);
+@media (max-width: 480px) {
+    .pricing-section-white {
+        padding: 60px 5% 60px 5%;
+    }
+
+    .pricing-main-title-white {
+        font-size: 28px;
+    }
+
+    .pricing-subtitle-white {
+        font-size: 14px;
+    }
+
+    .card-body-white {
+        padding: 20px;
+    }
+
+    .card-badge-top-white {
+        padding: 25px 20px 0 20px;
+    }
+
+    .price-amount-white {
+        font-size: 28px;
     }
 }
