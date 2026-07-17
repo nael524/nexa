@@ -9,6 +9,7 @@ import List from './pages/List';
 import Layanan from './pages/Layanan';
 import Waktu from './pages/Waktu';
 import ScrollToTop from './pages/ScrollToTop';
+import Portofolio from './pages/Portofolio';
 function App() {
   return (
     <Router>
@@ -22,6 +23,7 @@ function App() {
         <Route path="/testi" element={<Testimoni />} />
         <Route path="/layanan" element={<Layanan />} />
         <Route path="/waktu" element={<Waktu />} />
+        <Route path="/porto" element={<Portofolio />} />
       </Routes >
     </Router >
   );
