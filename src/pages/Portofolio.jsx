@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "../styles/Portofolio.css";
-
+import poster1 from "../images/10.png"
 function Portofolio() {
     // Data Kompleks Tech Stack (Ikon Teknologi & Software)
     const techStack = [
@@ -43,7 +43,7 @@ function Portofolio() {
         }, {
             id: 4,
             title: "5 Tanda Bisnis anda butuh Website",
-            imgUrl: "src/images/6.png",
+            src: { poster1 },
             tag: "Corporate"
         }
     ];
