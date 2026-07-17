@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom'; // 1. Import Link dari react-router-dom
 import '../styles/Navbar.css';
 
-import logoImg from '../images/logo.png'; // 1. Import file logo kamu di sini (sesuaikan arah foldernya)
+import logoImg from '../images/logo2.png'; // 1. Import file logo kamu di sini (sesuaikan arah foldernya)
 
 function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
