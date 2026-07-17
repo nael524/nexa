@@ -1,0 +1,485 @@
+/* ==========================================================================
+   1. MAIN DESIGN VARIABLES
+   ========================================================================== */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+.testi-page {
+    width: 100%;
+    min-height: 100vh;
+    background-color: #f8fafc;
+    padding: 140px 24px 100px 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-x: hidden;
+    position: relative;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+/* Ornamen Background Mewah & Megah */
+.testi-page::before {
+    content: "";
+    position: absolute;
+    width: 700px;
+    height: 700px;
+    top: -150px;
+    right: -100px;
+    background: radial-gradient(circle, rgba(19, 195, 67, 0.08) 0%, rgba(255, 255, 255, 0) 70%);
+    z-index: 1;
+    pointer-events: none;
+}
+
+.testi-page::after {
+    content: "";
+    position: absolute;
+    width: 700px;
+    height: 700px;
+    top: 40%;
+    left: -150px;
+    background: radial-gradient(circle, rgba(7, 26, 104, 0.05) 0%, rgba(255, 255, 255, 0) 70%);
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* ==========================================================================
+   2. HERO HEADER SECTION
+   ========================================================================== */
+.testi-hero {
+    width: 100%;
+    max-width: 800px;
+    text-align: center;
+    margin-bottom: 50px;
+    position: relative;
+    z-index: 2;
+    animation: fadeInUp 0.8s ease-out;
+}
+
+.testi-tagline {
+    font-size: 13px;
+    font-weight: 800;
+    color: #13c343;
+    letter-spacing: 3px;
+    display: inline-block;
+    margin-bottom: 16px;
+    background: rgba(19, 195, 67, 0.08);
+    padding: 6px 16px;
+    border-radius: 99px;
+    border: 1px solid rgba(19, 195, 67, 0.15);
+}
+
+.testi-title {
+    color: #071A68;
+    font-size: 46px;
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 24px;
+    letter-spacing: -1.5px;
+}
+
+.testi-title span {
+    background: linear-gradient(135deg, #071A68, #13c343);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.testi-subtitle {
+    color: #475569;
+    font-size: 16.5px;
+    line-height: 1.7;
+    font-weight: 500;
+    max-width: 650px;
+    margin: 0 auto;
+}
+
+/* ==========================================================================
+   3. STATISTIK VALUE SECTION (MEGAH)
+   ========================================================================== */
+.testi-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    width: 100%;
+    max-width: 1140px;
+    margin-bottom: 60px;
+    position: relative;
+    z-index: 2;
+}
+
+.stat-box {
+    background: #ffffff;
+    border: 1px solid rgba(7, 26, 104, 0.06);
+    border-radius: 20px;
+    padding: 24px;
+    text-align: center;
+    box-shadow: 0 10px 25px rgba(7, 26, 104, 0.02);
+    transition: transform 0.3s ease;
+}
+
+.stat-box:hover {
+    transform: translateY(-5px);
+}
+
+.stat-value {
+    font-size: 36px;
+    font-weight: 800;
+    color: #071A68;
+    background: linear-gradient(135deg, #071A68 60%, #13c343);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 4px;
+}
+
+.stat-label {
+    font-size: 14px;
+    color: #64748b;
+    font-weight: 600;
+}
+
+/* ==========================================================================
+   4. FILTER NAV TAB CONTAINER
+   ========================================================================== */
+.filter-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 48px;
+    position: relative;
+    z-index: 2;
+}
+
+.filter-container {
+    background: #ffffff;
+    padding: 6px;
+    border-radius: 99px;
+    border: 1px solid #e2e8f0;
+    display: flex;
+    gap: 4px;
+    box-shadow: 0 4px 20px rgba(7, 26, 104, 0.03);
+    overflow-x: auto;
+    scrollbar-width: none;
+    /* Hide scrollbar for clean aesthetic */
+}
+
+.filter-container::-webkit-scrollbar {
+    display: none;
+}
+
+.filter-btn {
+    padding: 10px 28px;
+    border: none;
+    background: transparent;
+    font-size: 14px;
+    font-weight: 700;
+    color: #64748b;
+    border-radius: 99px;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.filter-btn:hover {
+    color: #071A68;
+}
+
+.filter-btn.active {
+    background: linear-gradient(135deg, #071A68, #05134e);
+    color: #ffffff;
+    box-shadow: 0 8px 20px rgba(7, 26, 104, 0.2);
+}
+
+/* ==========================================================================
+   5. TESTIMONIAL CARDS GRID
+   ========================================================================== */
+.testi-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    width: 100%;
+    max-width: 1140px;
+    margin-bottom: 80px;
+    position: relative;
+    z-index: 2;
+}
+
+.testi-card {
+    background: #ffffff;
+    border: 1px solid rgba(7, 26, 104, 0.06);
+    border-radius: 24px;
+    padding: 36px;
+    box-shadow: 0 15px 35px rgba(7, 26, 104, 0.03);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.testi-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 25px 50px rgba(7, 26, 104, 0.08);
+    border-color: rgba(19, 195, 67, 0.2);
+}
+
+.quote-icon {
+    font-size: 70px;
+    color: rgba(19, 195, 67, 0.1);
+    position: absolute;
+    top: 10px;
+    left: 24px;
+    font-family: serif;
+    line-height: 1;
+    pointer-events: none;
+}
+
+.rating-stars {
+    color: #ffb800;
+    font-size: 16px;
+    margin-bottom: 16px;
+    letter-spacing: 2px;
+}
+
+.testi-text {
+    font-size: 15px;
+    color: #334155;
+    line-height: 1.7;
+    font-weight: 500;
+    margin-bottom: 28px;
+    position: relative;
+    z-index: 2;
+}
+
+.testi-divider {
+    width: 100%;
+    height: 1px;
+    background: #f1f5f9;
+    margin-bottom: 20px;
+}
+
+.testi-profile {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.profile-img {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #13c343;
+    padding: 2px;
+    background-color: #ffffff;
+}
+
+.profile-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.profile-name {
+    font-size: 16px;
+    color: #0f172a;
+    font-weight: 700;
+}
+
+.profile-role {
+    font-size: 13px;
+    color: #64748b;
+    font-weight: 500;
+}
+
+.profile-company {
+    font-size: 12px;
+    color: #13c343;
+    font-weight: 700;
+    margin-top: 2px;
+}
+
+/* ==========================================================================
+   6. CALL TO ACTION CONTAINER BLOCK (MEGAH)
+   ========================================================================== */
+.cta-container {
+    width: 100%;
+    max-width: 1140px;
+    position: relative;
+    z-index: 2;
+}
+
+.cta-content {
+    background: linear-gradient(135deg, #05134e 0%, #0a2286 100%);
+    border-radius: 24px;
+    padding: 40px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 20px 45px rgba(5, 19, 78, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Hiasan Pendaran Hijau Di Dalam Banner */
+.cta-content::after {
+    content: "";
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    bottom: -150px;
+    right: -50px;
+    background: radial-gradient(circle, rgba(19, 195, 67, 0.15) 0%, rgba(255, 255, 255, 0) 70%);
+    pointer-events: none;
+}
+
+.cta-left {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+.cta-icon-box {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.mail-svg {
+    width: 28px;
+    height: 28px;
+    color: #13c343;
+    /* Ikon Berwarna Hijau Sesuai Gambar */
+}
+
+.cta-text h3 {
+    color: #ffffff;
+    font-size: 22px;
+    font-weight: 800;
+    margin-bottom: 6px;
+    letter-spacing: -0.5px;
+}
+
+.cta-text p {
+    color: #cbd5e1;
+    font-size: 14.5px;
+    font-weight: 400;
+}
+
+.cta-btn {
+    padding: 14px 36px;
+    background: #13c343;
+    /* Tombol Hijau Kontras */
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 15px;
+    border-radius: 99px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 10px 25px rgba(19, 195, 67, 0.3);
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 2;
+}
+
+.cta-btn:hover {
+    background: #10a337;
+    transform: translateY(-2px);
+    box-shadow: 0 12px 30px rgba(19, 195, 67, 0.4);
+}
+
+.cta-arrow {
+    font-size: 18px;
+    transition: transform 0.3s ease;
+}
+
+.cta-btn:hover .cta-arrow {
+    transform: translateX(4px);
+}
+
+/* ==========================================================================
+   7. KEYFRAMES & RESPONSIVE BREAKPOINTS
+   ========================================================================== */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Tablet Layout (Grid Breakpoints) */
+@media screen and (max-width: 1024px) {
+    .testi-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .testi-stats {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+    }
+}
+
+/* Mobile & Small Device Layout */
+@media screen and (max-width: 768px) {
+    .testi-page {
+        padding: 100px 16px 60px 16px;
+    }
+
+    .testi-title {
+        font-size: 32px;
+    }
+
+    .testi-subtitle {
+        font-size: 14px;
+    }
+
+    .testi-stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .stat-value {
+        font-size: 28px;
+    }
+
+    .filter-container {
+        border-radius: 20px;
+        padding: 4px;
+    }
+
+    .filter-btn {
+        padding: 8px 20px;
+        font-size: 13px;
+    }
+
+    .testi-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .cta-content {
+        flex-direction: column;
+        text-align: center;
+        padding: 32px 24px;
+        gap: 24px;
+    }
+
+    .cta-left {
+        flex-direction: column;
+        gap: 14px;
+    }
+
+    .cta-btn {
+        width: 100%;
+        justify-content: center;
+    }
+}

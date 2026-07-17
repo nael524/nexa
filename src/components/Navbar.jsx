@@ -33,6 +33,8 @@ function Navbar() {
                     <li><Link to="/about" onClick={toggleMenu}>About</Link></li>
                     <li><Link to="/list" onClick={toggleMenu}>List Harga</Link></li>
                     <li><Link to="/services" onClick={toggleMenu}>Services</Link></li>
+                    <li><Link to="/layanan" onClick={toggleMenu}>Layanan</Link></li>
+                    <li><Link to="/testi" onClick={toggleMenu}>Testimoni</Link></li>
                     <li><Link to="/contact" onClick={toggleMenu}>Contact</Link></li>
                 </ul >
             </div >

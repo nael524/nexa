@@ -123,7 +123,7 @@ function Home() {
                                 <span className="card-top-title">{price.title}</span>
                                 <div className="dot-indicator"></div>
                             </div>
-                            <h2 className="card-price">{price.price}</h2>
+                            <h2 className="card-price1">{price.price}</h2>
                             <p className="card-desc">{price.desc}</p>
                             <div className="card-footer">
                                 <span className="badge">{price.badge}</span>

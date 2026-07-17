@@ -1,22 +1,68 @@
 /* ==========================================================================
-   1. GLOBAL SYSTEM LOCK
+   1. GLOBAL RESET & DESIGN SYSTEM VARIABLES
    ========================================================================== */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+:root {
+    /* Color Palette */
+    --primary-blue: #071A68;
+    --deep-blue: #05134e;
+    --electric-blue: #2563eb;
+    --primary-green: #13c343;
+    --emerald-glow: #10b981;
+
+    /* Neutral Colors */
+    --bg-light: #f8fafc;
+    --text-dark: #0f172a;
+    --text-muted: #475569;
+    --border-color: #e2e8f0;
+}
+
+body {
+    background-color: var(--bg-light);
 }
 
 .home-page {
     width: 100%;
     min-height: 100vh;
-    background-color: #ffffff;
-    padding: 120px 24px 80px 24px;
+    padding: 140px 24px 100px 24px;
     display: flex;
     flex-direction: column;
     align-items: center;
     overflow-x: hidden;
+    position: relative;
+}
+
+/* Background Gradients Ornaments (Efek Estetika Modern) */
+.home-page::before {
+    content: "";
+    position: absolute;
+    top: -10%;
+    right: -10%;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(19, 195, 67, 0.08) 0%, rgba(255, 255, 255, 0) 70%);
+    z-index: -1;
+    pointer-events: none;
+}
+
+.home-page::after {
+    content: "";
+    position: absolute;
+    top: 20%;
+    left: -10%;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(7, 26, 104, 0.05) 0%, rgba(255, 255, 255, 0) 70%);
+    z-index: -1;
+    pointer-events: none;
 }
 
 /* ==========================================================================
@@ -24,240 +70,315 @@
    ========================================================================== */
 .hero-section {
     width: 100%;
-    max-width: 650px;
+    max-width: 750px;
     text-align: center;
-    margin-bottom: 35px;
+    margin-bottom: 50px;
+    animation: fadeInUp 0.8s ease-out;
 }
 
 .hero-title {
-    color: #071A68;
-    font-size: 42px;
+    color: var(--primary-blue);
+    font-size: 48px;
     font-weight: 800;
-    line-height: 1.2;
-    margin-bottom: 20px;
+    line-height: 1.15;
+    margin-bottom: 24px;
+    letter-spacing: -1.5px;
+}
+
+/* Aksen Warna Hijau pada judul */
+.hero-title br+text,
+.hero-title {
+    background: linear-gradient(135deg, var(--primary-blue) 60%, var(--primary-green));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .hero-subtitle {
-    color: #1e293b;
-    font-size: 15.5px;
-    line-height: 1.6;
-    font-weight: 400;
+    color: var(--text-muted);
+    font-size: 16.5px;
+    line-height: 1.7;
+    font-weight: 500;
+    max-width: 600px;
+    margin: 0 auto;
 }
 
 /* ==========================================================================
-   3. KAPSUL TAB BUTTONS SELECTOR (PERSIS SCREENSHOT)
+   3. KAPSUL TAB BUTTONS SELECTOR
    ========================================================================== */
 .pricing-section {
     width: 100%;
-    max-width: 1100px;
+    max-width: 1140px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-bottom: 80px;
+    margin-bottom: 90px;
 }
 
 .tab-container {
     display: inline-flex;
-    background-color: #f1f5f9;
-    padding: 5px;
-    border-radius: 40px;
-    margin-bottom: 14px;
-    border: 1px solid #e2e8f0;
+    background-color: #ffffff;
+    padding: 6px;
+    border-radius: 99px;
+    margin-bottom: 16px;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 4px 20px rgba(7, 26, 104, 0.04);
 }
 
 .tab-btn {
-    padding: 10px 42px;
+    padding: 12px 48px;
     border: none;
     background: transparent;
-    font-size: 14px;
+    font-size: 14.5px;
     font-weight: 700;
-    color: #64748b;
-    border-radius: 30px;
+    color: var(--text-muted);
+    border-radius: 99px;
     cursor: pointer;
-    transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.tab-btn:hover {
+    color: var(--primary-blue);
 }
 
 .tab-btn.active {
-    background-color: #071A68;
+    background: linear-gradient(135deg, var(--primary-blue), var(--deep-blue));
     color: #ffffff;
+    box-shadow: 0 10px 25px rgba(7, 26, 104, 0.25);
 }
 
 .tab-notice {
-    font-size: 13px;
-    color: #4f46e5;
-    font-weight: 500;
+    font-size: 13.5px;
+    color: var(--emerald-glow);
+    background-color: rgba(16, 185, 129, 0.1);
+    padding: 6px 18px;
+    border-radius: 99px;
+    font-weight: 600;
     text-align: center;
-    margin-bottom: 40px;
-    max-width: 90%;
+    margin-bottom: 45px;
+    border: 1px solid rgba(16, 185, 129, 0.2);
 }
 
 /* ==========================================================================
-   4. LAYOUT KARTU HARGA (PRICING CARDS - DARK & LIGHT VARIANT)
+   4. LAYOUT KARTU HARGA (PRICING CARDS)
    ========================================================================== */
 .pricing-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    /* 2 Kolom Sejajar Desktop */
     gap: 32px;
     width: 100%;
 }
 
 .pricing-card {
-    border-radius: 24px;
-    padding: 40px;
+    border-radius: 28px;
+    padding: 44px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    box-shadow: 0 15px 40px rgba(7, 26, 104, 0.06);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    min-height: 320px;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    min-height: 360px;
+    position: relative;
+    overflow: hidden;
 }
 
-.pricing-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 20px 45px rgba(7, 26, 104, 0.12);
-}
-
-/* Skema Warna Kartu Gelap */
+/* ---- Skema KARTU GELAP ---- */
 .dark-card {
-    background-color: #05134e;
+    background: linear-gradient(145deg, #061554, #030d36);
+    color: #ffffff;
+    box-shadow: 0 20px 40px rgba(3, 13, 54, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.dark-card .dot-indicator {
+    background: radial-gradient(circle, var(--primary-green) 0%, #ffffff 75%);
+    box-shadow: 0 0 12px var(--primary-green);
+}
+
+.dark-card .card-price1 {
     color: #ffffff;
 }
 
-/* Skema Warna Kartu Terang */
+.dark-card .card-desc {
+    color: #cbd5e1;
+}
+
+.dark-card .info-link {
+    color: #ffffff;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.dark-card .info-link:hover {
+    color: var(--primary-green);
+    border-bottom-color: var(--primary-green);
+}
+
+/* ---- Skema KARTU TERANG ---- */
 .light-card {
-    background-color: #ffffff;
-    color: #0f172a;
-    border: 1px solid #f1f5f9;
+    background: #ffffff;
+    color: var(--text-dark);
+    border: 1px solid rgba(7, 26, 104, 0.08);
+    box-shadow: 0 20px 40px rgba(7, 26, 104, 0.03);
+}
+
+.light-card .dot-indicator {
+    background: linear-gradient(135deg, var(--primary-blue), var(--electric-blue));
+}
+
+.light-card .card-price1 {
+    color: var(--deep-blue);
+}
+
+.light-card .card-desc {
+    color: var(--text-muted);
+}
+
+.light-card .info-link {
+    color: var(--primary-blue);
+    border-bottom: 2px solid rgba(7, 26, 104, 0.15);
+}
+
+.light-card .info-link:hover {
+    color: var(--primary-green);
+    border-bottom-color: var(--primary-green);
+}
+
+/* Card Inner Elements */
+.pricing-card:hover {
+    transform: translateY(-8px) scale(1.01);
+    box-shadow: 0 30px 60px rgba(7, 26, 104, 0.12);
 }
 
 .card-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-bottom: 16px;
 }
 
 .card-top-title {
     font-size: 16px;
-    color: #13c343;
-    font-weight: 600;
-    letter-spacing: -0.3px;
+    color: var(--primary-green);
+    font-weight: 700;
+    letter-spacing: -0.2px;
 }
 
 .dot-indicator {
-    width: 28px;
-    color: #05134e;
-    height: 28px;
+    width: 14px;
+    height: 14px;
     border-radius: 50%;
-    background-color: #ffffff;
-    /* Indikator lingkaran putih */
+    flex-shrink: 0;
 }
 
-.light-card .dot-indicator {
-    background-color: #05134e;
-    /* Indikator lingkaran biru tua */
-}
-
-.card-price {
-    font-size: 38px;
-    color: #05134e;
+.card-price1 {
+    font-size: 42px;
     font-weight: 800;
-    margin: 24px 0 12px 0;
-    letter-spacing: -1px;
+    margin: 12px 0 16px 0;
+    letter-spacing: -1.5px;
 }
 
 .card-desc {
-    font-size: 14px;
-    color: #05134e;
-    line-height: 1.6;
-    margin-bottom: 35px;
-    opacity: 0.85;
+    font-size: 15px;
+    line-height: 1.65;
+    margin-bottom: 40px;
+    font-weight: 400;
 }
 
 .card-footer {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    color: #05134e;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    padding-top: 20px;
+    border-top: 1px solid rgba(7, 26, 104, 0.08);
+    padding-top: 24px;
 }
 
-.light-card .card-footer {
-    border-top-color: #f1f5f9;
+.dark-card .card-footer {
+    border-top-color: rgba(255, 255, 255, 0.08);
 }
 
 .badge {
-    font-size: 12px;
-    font-weight: 600;
-    color: #13c343;
+    font-size: 12.5px;
+    font-weight: 700;
+    color: var(--primary-green);
+    background-color: rgba(19, 195, 67, 0.1);
+    padding: 6px 14px;
+    border-radius: 8px;
 }
 
 .light-card .badge {
-    color: #475569;
+    background-color: rgba(7, 26, 104, 0.05);
+    color: var(--primary-blue);
 }
 
 .info-link {
-    font-size: 13.5px;
+    font-size: 14px;
     font-weight: 700;
-    color: #05134e;
     text-decoration: none;
-    opacity: 0.9;
-    transition: color 0.2s ease;
-}
-
-.light-card .info-link {
-    color: #05134e;
-}
-
-.info-link:hover {
-    color: #13c343;
+    padding-bottom: 2px;
+    transition: all 0.3s ease;
 }
 
 /* ==========================================================================
-   5. LIST HARGA & KATEGORI (VERTICAL GREEN STRIP TAG - PERSIS GAMBAR)
+   5. LIST HARGA & KATEGORI (VERTICAL STRIP)
    ========================================================================== */
 .services-section {
     width: 100%;
-    max-width: 1100px;
+    max-width: 1140px;
+    margin-top: 20px;
 }
 
 .section-title {
-    font-size: 34px;
-    color: #13c343;
-    /* Hijau Terang khas judul gambar */
+    font-size: 36px;
+    color: var(--primary-blue);
     font-weight: 800;
-    margin-bottom: 36px;
-    text-align: left;
+    margin-bottom: 40px;
+    letter-spacing: -1px;
+    position: relative;
+    display: inline-block;
+}
+
+/* Garis bawah dekoratif pada judul List Harga */
+.section-title::after {
+    content: "";
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 60px;
+    height: 4px;
+    background-color: var(--primary-green);
+    border-radius: 2px;
 }
 
 .services-grid {
     display: flex;
     flex-direction: column;
-    gap: 24px;
-    /* Susunan menurun presisi untuk mobile/desktop flow */
+    gap: 28px;
     width: 100%;
 }
 
 .service-list-card {
     display: flex;
     background: #ffffff;
-    border-radius: 16px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-    border: 1px solid #f8fafc;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(7, 26, 104, 0.03);
+    border: 1px solid rgba(7, 26, 104, 0.05);
     overflow: hidden;
-    min-height: 140px;
+    transition: all 0.3s ease;
 }
 
-/* Pembatas Strip Tag Hijau Vertikal */
+.service-list-card:hover {
+    transform: translateX(6px);
+    box-shadow: 0 15px 35px rgba(7, 26, 104, 0.07);
+    border-color: rgba(19, 195, 67, 0.2);
+}
+
+/* Pembatas Strip Tag Kombinasi Biru/Hijau */
 .service-tag-side {
-    background-color: #13c343;
-    width: 48px;
+    background: linear-gradient(180deg, var(--primary-blue) 0%, var(--primary-green) 100%);
+    width: 54px;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
-    padding: 10px 0;
+    padding: 15px 0;
 }
 
 .vertical-text {
@@ -266,93 +387,123 @@
     color: #ffffff;
     font-size: 11px;
     font-weight: 700;
-    letter-spacing: 1.5px;
+    letter-spacing: 2px;
     text-transform: uppercase;
     text-align: center;
     white-space: nowrap;
 }
 
 .service-content-side {
-    padding: 24px 32px;
+    padding: 32px 40px;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    flex-grow: 1;
 }
 
 .service-content-side h3 {
-    font-size: 22px;
-    color: #000000;
-    font-weight: 700;
-    margin-bottom: 8px;
+    font-size: 24px;
+    color: var(--deep-blue);
+    font-weight: 800;
+    margin-bottom: 16px;
+    letter-spacing: -0.5px;
 }
 
 .service-content-side ul {
     list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    /* Tampilan 2 kolom untuk list agar bersih */
+    gap: 12px;
 }
 
 .service-content-side ul li {
     font-size: 15px;
-    color: #475569;
-    font-weight: 500;
-    line-height: 1.5;
+    color: var(--text-muted);
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+}
+
+/* Aksen custom bullet point berupa checkmark hijau */
+.service-content-side ul li::before {
+    content: "✓";
+    color: var(--primary-green);
+    font-weight: 800;
+    margin-right: 10px;
+    font-size: 16px;
 }
 
 /* ==========================================================================
-   6. RESPONSIVE MEDIA BREAKPOINTS (ANTI KEBOCORAN SCREEN HP)
+   6. ANIMATIONS & MEDIA BREAKPOINTS
    ========================================================================== */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 @media screen and (max-width: 992px) {
     .pricing-grid {
         grid-template-columns: 1fr;
-        /* Memecah grid kartu harga jadi satu baris tunggal */
-        max-width: 600px;
+        max-width: 580px;
         margin: 0 auto;
+    }
+
+    .service-content-side ul {
+        grid-template-columns: 1fr;
+        /* Kembali ke 1 kolom pada layar tablet/mobile */
     }
 }
 
 @media screen and (max-width: 600px) {
     .home-page {
-        padding: 90px 16px 60px 16px;
+        padding: 100px 16px 60px 16px;
     }
 
     .hero-title {
-        font-size: 32px;
+        font-size: 36px;
     }
 
     .hero-subtitle {
-        font-size: 14px;
+        font-size: 14.5px;
+    }
+
+    .tab-btn {
+        padding: 10px 28px;
+        font-size: 13.5px;
     }
 
     .section-title {
         font-size: 28px;
-        margin-bottom: 24px;
+        margin-bottom: 30px;
     }
 
     .pricing-card {
-        padding: 28px 20px;
+        padding: 32px 24px;
         min-height: auto;
     }
 
-    .card-price {
-        font-size: 30px;
-        margin: 16px 0 8px 0;
-    }
-
-    .service-list-card {
-        min-height: auto;
+    .card-price1 {
+        font-size: 34px;
+        margin: 12px 0 12px 0;
     }
 
     .service-content-side {
-        padding: 16px 20px;
+        padding: 24px 20px;
     }
 
     .service-content-side h3 {
-        font-size: 18px;
+        font-size: 19px;
     }
 
     .service-content-side ul li {
-        font-size: 13.5px;
+        font-size: 14px;
     }
 }
