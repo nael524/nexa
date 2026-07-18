@@ -15,6 +15,13 @@
     font-family: 'Plus Jakarta Sans', sans-serif;
 }
 
+.tech-custom-icon-img {
+    width: 50px;
+    height: 40px;
+    object-fit: contain;
+    display: block;
+}
+
 /* ==========================================================================
    2. HERO TOP SECTION
    ========================================================================== */

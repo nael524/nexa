@@ -1,49 +1,71 @@
 import React, { useState } from "react";
 import "../styles/Portofolio.css";
-import poster1 from "../images/10.png"
+
+// Import Semua Aset Gambar & Icon agar Aman Saat Deploy Production
+import poster1 from "../images/10.png";
+import poster2 from "../images/6.png";
+import poster3 from "../images/8.png";
+import poster4 from "../images/9.png";
+import figmaIcon from "../images/figma.png";
+import canvaIcon from "../images/canva.png";
+import capcutIcon from "../images/capcut.png";
+import reactIcon from "../images/react.png";
+import pythonIcon from "../images/python.png";
+import githubIcon from "../images/github.png";
+import vsIcon from "../images/vscode.png";
+import javaIcon from "../images/java.png"
+import phpIcon from "../images/PHP.png"
+import nodeIcon from "../images/nodejs.png"
+import laravelIcon from "../images/laravel.png"
+import htmlIcon from "../images/html.png"
+import affielIcon from "../images/affinity.png"
+import dataIcon from "../images/mysql.png"
+import androidIcon from "../images/android.png"
+
 function Portofolio() {
     // Data Kompleks Tech Stack (Ikon Teknologi & Software)
     const techStack = [
-        { name: "Figma", icon: "🎨" },
-        { name: "Canva", icon: "✨" },
-        { name: "CapCut", icon: "🎬" },
-        { name: "React Pro", icon: "⚛️" },
-        { name: "Python", icon: "🐍" },
-        { name: "GitHub", icon: "🐙" },
-        { name: "VS Code", icon: "💻" },
-        { name: "Android", icon: "🤖" },
-        { name: "Java", icon: "☕" },
-        { name: "PHP", icon: "🐘" },
-        { name: "Node.js", icon: "🟢" },
-        { name: "Laravel", icon: "🟥" },
-        { name: "HTML5", icon: "🔥" },
-        { name: "Git", icon: "🌿" },
-        { name: "Database", icon: "🗄️" }
+        { name: "Figma", icon: "🎨", customImg: figmaIcon }, // Menggunakan file import figma Anda
+        { name: "Canva", icon: "✨", customImg: canvaIcon },
+        { name: "CapCut", icon: "🎬", customImg: capcutIcon },
+        { name: "React Pro", icon: "⚛️", customImg: reactIcon },
+        { name: "Python", icon: "🐍", customImg: pythonIcon },
+        { name: "GitHub", icon: "🐙", customImg: githubIcon },
+        { name: "VS Code", icon: "💻", customImg: vsIcon },
+        { name: "Android", icon: "🤖", customImg: androidIcon },
+        { name: "Java", icon: "☕", customImg: javaIcon },
+        { name: "PHP", icon: "🐘", customImg: phpIcon },
+        { name: "Node.js", icon: "🟢", customImg: nodeIcon },
+        { name: "Laravel", icon: "🟥", customImg: laravelIcon },
+        { name: "HTML5", icon: "🔥", customImg: htmlIcon },
+        { name: "Affinity", icon: "🌿", customImg: affielIcon },
+        { name: "mysql", icon: "🗄️", customImg: dataIcon }
     ];
 
-    // Data Kompleks Portofolio Kategori Poster
+    // Data Kategori Poster (Semua Menggunakan Variabel Hasil Import)
     const posterData = [
         {
             id: 1,
             title: "Jenis-jenis Website",
-            imgUrl: "src/images/8.png",
+            imgUrl: poster3, // dari import poster3 ("../images/8.png")
             tag: "Marketing"
         },
         {
             id: 2,
             title: "Mengapa Memilih Nexa?",
-            imgUrl: "src/images/9.png",
+            imgUrl: poster4, // dari import poster4 ("../images/9.png")
             tag: "Branding"
         },
         {
             id: 3,
             title: "Apa itu Landing Pages",
-            imgUrl: "src/images/10.png",
+            imgUrl: poster1, // dari import poster1 ("../images/10.png")
             tag: "Corporate"
-        }, {
+        },
+        {
             id: 4,
             title: "5 Tanda Bisnis anda butuh Website",
-            src: { poster1 },
+            imgUrl: poster2, // Struktur diperbaiki agar seragam menggunakan properti imgUrl
             tag: "Corporate"
         }
     ];
@@ -106,7 +128,11 @@ function Portofolio() {
                 <div className="tech-stack-grid">
                     {techStack.map((tech, index) => (
                         <div key={index} className="tech-item-circle" title={tech.name}>
-                            <span className="tech-emoji">{tech.icon}</span>
+                            {tech.customImg ? (
+                                <img src={tech.customImg} alt={tech.name} className="tech-custom-icon-img" />
+                            ) : (
+                                <span className="tech-emoji">{tech.icon}</span>
+                            )}
                             <span className="tech-name-popup">{tech.name}</span>
                         </div>
                     ))}
